@@ -203,10 +203,11 @@ _ = ax.legend()
 
 fig, ax = plt.subplots(nrows=4, ncols=4, figsize=(10, 10))
 methylations = ['SLC12A5','POU4F2','VGF','SCGN']
-for i, x in enumerate(methylations):
-    for j, y in enumerate(methylations):
+for i, xx in enumerate(methylations):
+    for j, yy in enumerate(methylations):
         if i != j:
-            ax[i, j].scatter(data[x], data[y], c=data['environment'].map({'captive': 'red', 'wild': 'green'}))
+            ax[i, j].scatter(data[xx], data[yy], # type: ignore
+                             c=data['environment'].map({'captive': 'red', 'wild': 'green'}))
 
 # ### Exercise 8 (max 4 points)
 #
